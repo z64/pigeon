@@ -1,7 +1,7 @@
 module Pigeon
   # A cache of Discordrb::Message
   class Queue
-    # @return [Array<Discordrb::Message] collection of messages to be dispatched
+    # @return [Array<Discordrb::Message>] collection of messages to be dispatched
     attr_reader :queue
 
     def initialize
