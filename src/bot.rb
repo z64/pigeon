@@ -3,6 +3,7 @@ require 'rufus-scheduler'
 
 require_relative 'pigeon/config'
 require_relative 'pigeon/gmail'
+require_relative 'pigeon/queue'
 
 module Pigeon
   module_function
@@ -37,16 +38,16 @@ module Pigeon
   end
 
   # Queues a message to be sent eventually
-  def queue(message)
-    @queue ||= []
+  def queue(message = nil)
+    @queue ||= Queue.new
+    return @queue unless message
+
     @queue << message
   end
 
   # Mails the queue and empties it
   def dispatch_queue!
-    next unless queue.any?
-    @queue.each { |m| puts m.inspect }
-    @queue = []
+    puts queue.drain!
   end
 
   # Registers event handlers on our bot
