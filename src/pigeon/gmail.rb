@@ -10,7 +10,7 @@ module Pigeon
     attr_reader :password
 
     def initialize(user_name, password)
-      @user_name = user_name + "@gmail.com"
+      @user_name = user_name
       @password = password
     end
 
@@ -19,8 +19,9 @@ module Pigeon
     # @param subj [String] subject of the email
     # @param bod [String] body (content) of the email
     def send!(address, subj, bod)
+      emailadd = @user_name + "@gmail.com"
       mail = Mail.new do
-        from @user_name
+        from emailadd
         to address
         subject subj
         body bod
