@@ -6,6 +6,9 @@ module Pigeon
     # @return [String] account username
     attr_reader :user_name
 
+    # @return [String] email address
+    attr_reader :email_address
+
     # @return [String] account password
     attr_reader :password
 
