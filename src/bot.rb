@@ -61,7 +61,7 @@ module Pigeon
   def register_handlers
     # Queue every message we receive, if it is in our configured servers list.
     bot.message do |event|
-      next unless config.servers.include?(event.server.id)
+      next unless config.servers.include?(event.server&.id) || event.channel.private?
       queue(event.message)
     end
 
