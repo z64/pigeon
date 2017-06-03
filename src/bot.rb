@@ -38,14 +38,13 @@ module Pigeon
 
   # Queues a message to be sent eventually
   def queue(message)
-    next unless queue.any?
     @queue ||= []
     @queue << message
   end
 
   # Mails the queue and empties it
   def dispatch_queue!
-    Discordrb::LOGGER.info 'dispatching queue!'
+    next unless queue.any?
     @queue.each { |m| puts m.inspect }
     @queue = []
   end
