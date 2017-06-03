@@ -7,7 +7,7 @@ module Pigeon
     attr_reader :token
 
     # @return [Array<Integer, String] array of server IDs to send logs to
-    attr_reader :server_ids
+    attr_reader :servers
 
     # @return [String] gmail username
     attr_reader :gmail_username
