@@ -15,14 +15,18 @@ module Pigeon
     # @return [String] gmail password
     attr_reader :gmail_password
 
+    # @return [String] delivery address
+    attr_reader :deliver_to
+
     # @return [String] syndication interval. To be passed to `Rufus::Scheduler#every`.
     attr_reader :interval
 
-    def initialize(token: nil, servers: nil, gmail_username: nil, gmail_password: nil, interval: nil)
+    def initialize(token: nil, servers: nil, gmail_username: nil, gmail_password: nil, deliver_to: nil, interval: nil)
       @token = token
       @servers = servers
       @gmail_username = gmail_username
       @gmail_password = gmail_password
+      @deliver_to = deliver_to
       @interval = interval
     end
 
