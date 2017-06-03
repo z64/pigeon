@@ -23,8 +23,9 @@ module Pigeon
     # @param subj [String] subject of the email
     # @param bod [String] body (content) of the email
     def send!(address, subj, bod)
+      from_address = email_address
       mail = Mail.new do
-        from @email_address
+        from from_address
         to address
         subject subj
         body bod
