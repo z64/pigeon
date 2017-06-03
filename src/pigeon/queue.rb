@@ -30,6 +30,7 @@ module Pigeon
     private
 
     # Formats a message for draining
+    # TODO: Make this a little configurable
     # @param message [Discordrb::Message]
     # @return [String] the formatted message
     def format(message)
