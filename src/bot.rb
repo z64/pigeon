@@ -22,12 +22,11 @@ module Pigeon
     )
   end
 
-  # TODO: Change type to :user
   # @return [Discordrb::Bot]
   def bot
     @bot ||= Discordrb::Bot.new(
       token: config.token,
-      type: :bot
+      type: :user
     )
   end
 
