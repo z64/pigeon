@@ -11,6 +11,7 @@ module Pigeon
 
     def initialize(user_name, password)
       @user_name = user_name
+      @email_address = user_name + "@gmail.com"
       @password = password
     end
 
@@ -19,9 +20,8 @@ module Pigeon
     # @param subj [String] subject of the email
     # @param bod [String] body (content) of the email
     def send!(address, subj, bod)
-      emailadd = @user_name + "@gmail.com"
       mail = Mail.new do
-        from emailadd
+        from @email_address
         to address
         subject subj
         body bod
