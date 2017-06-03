@@ -47,7 +47,14 @@ module Pigeon
 
   # Mails the queue and empties it
   def dispatch_queue!
-    puts queue.drain!
+    data = queue.drain!
+    return unless data
+
+    gmail.send!(
+      config.deliver_to,
+      'Pigeon - Discord Logs',
+      data
+    )
   end
 
   # Registers event handlers on our bot
